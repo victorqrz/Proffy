@@ -8,6 +8,8 @@ import './styles.css';
 
 interface PageHeaderProps {
   title: string;
+  description?: string
+  //a interrogação explicita que não é uma prop obrigatória
 }
 
 //FC -> Functional Component
@@ -23,6 +25,8 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
 
       <div className="header-content">
         <strong>{props.title}</strong>
+        { props.description && <p>{props.description}</p> }
+
         {props.children}
       </div>
     </header>
