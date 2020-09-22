@@ -5,7 +5,12 @@ export async function up(knex: Knex){
     table.increments('id').primary();
 
     //contato realizado com o prof
-    table.integer('user_id').notNullable().references('id').inTable('users').onUpdate('CASCADE').onDelete('CASCADE');
+    table.integer('user_id')
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
 
     table.timestamp('created_at').defaultTo('now()').notNullable();
   });
